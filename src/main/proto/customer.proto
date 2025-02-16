@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package customer;
+
+// The request message containing user information.
+message CustomerRequest {
+  string name = 1;
+  string id_number = 2;
+  string address = 3;
+}
+
+// The response message containing the server's reply.
+message CustomerResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// The customer service definition.
+service CustomerService {
+  // Sends a request to add a new customer
+  rpc AddCustomer(CustomerRequest) returns (CustomerResponse);
+}
